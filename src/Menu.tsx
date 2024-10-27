@@ -2,12 +2,15 @@
 import React, { useState } from "react";
 import { menuItems } from "./backend";
 import { MenuItem } from "./MenuItem";
-import {OrderSummary} from "./OrderSummary";
 import {MenuItemInterface} from "./interfaces";
 
-export const Menu: React.FC = () => {
+interface MenuProps {
+    orderedItems: MenuItemInterface[];
+    setOrderedItems: React.Dispatch<React.SetStateAction<MenuItemInterface[]>>;
+}
+
+export const Menu: React.FC<MenuProps> = ({orderedItems, setOrderedItems}) => {
     const [selectedCategory, setSelectedCategory] = useState<string>("");
-    const [orderedItems, setOrderedItems] = useState<MenuItemInterface[]>([]);
 
     const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCategory(event.target.value);
@@ -25,7 +28,6 @@ export const Menu: React.FC = () => {
 
     return (
         <div>
-            <OrderSummary  orderedItems={orderedItems}/>
             <select onChange={handleCategoryChange}>
                 <option value="">All</option>
                 {categories.map((category, index) => (
