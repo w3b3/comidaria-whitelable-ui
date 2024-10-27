@@ -1,8 +1,8 @@
 # TODO
 Day 1
 - [x] Add a README.md file
-- [ ] Set up your project structure (frontend framework, manifest.json, etc.)
-- [ ] Create the basic UI for menu display.
+- [x] Set up your project structure (frontend framework, manifest.json, etc.)
+- [x] Create the basic UI for menu display.
 - [ ] Implement the order form with quantity selection.
 - [ ] Set up the dummy checkout process.
 
