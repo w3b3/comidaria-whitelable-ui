@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Menu} from "./Menu";
+import LogoRestaurant from "./images/logo_restaurant.jpg";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <img className={"restaurant-logo"} src={LogoRestaurant} alt="restaurant logo"/>
+          <h1>Comidaria - Menu</h1>
       </header>
+      <Menu />
     </div>
   );
 }

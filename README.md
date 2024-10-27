@@ -1,46 +1,115 @@
-# Getting Started with Create React App
+# TODO
+Day 1
+- [x] Add a README.md file
+- [ ] Set up your project structure (frontend framework, manifest.json, etc.)
+- [ ] Create the basic UI for menu display.
+- [ ] Implement the order form with quantity selection.
+- [ ] Set up the dummy checkout process.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Day 2
+- [ ] Implement the service worker for basic offline caching.
+- [ ] Test thoroughly on your own device (and ideally another device/browser).
+- [ ] Deploy
 
-## Available Scripts
+## Reminders
 
-In the project directory, you can run:
+Key Considerations for Speed:
 
-### `npm start`
+### No Complex Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Resist the urge to add too much. Focus on the core flow: browse, order, "checkout."
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Hardcoded Data
 
-### `npm test`
+Skip database setup for now. Hardcode menu data and simulate order storage.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Minimal Styling
 
-### `npm run build`
+Keep it clean and functional. Don't get bogged down in intricate CSS.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Frontend (Customer Facing):
+- Single Page App (SPA)
+- Minimalist Menu: Start with a hardcoded menu in your JavaScript. Focus on clean presentation with item names, descriptions, and prices.
+- Basic Order Form: Simple quantity selection for each item. No complex customizations yet (we'll add those later).
+- Dummy Checkout: For now, simulate a successful order. Don't worry about payment integration just yet.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend (Restaurant Side - Super Simple):
+- No Backend (for now)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[//]: # (- Order Queue: Display incoming orders in a simple list. No need for real-time updates yet.)
+[//]: # (- Order Details: Click on an order to see its details. For now, just display the items and quantities in a simple list.)
+[//]: # (- Order Status: Update the status of an order. For now, just have a "New" and "Complete" status.)
+[//]: # (- Dummy Data: Use hardcoded data for your menu and orders. Don't worry about saving anything to a database yet.)
 
-### `npm run eject`
+### All we are ignoring for now:
+- No Authentication: Don't worry about user accounts or authentication. We'll add that later.
+- No Error Handling: Don't worry about handling errors or edge cases. We'll add that later.
+- No Testing: Don't worry about writing tests. We'll add that later.
+- No Styling: Don't worry about making it look pretty. We'll add that later.
+- No Deployment: Don't worry about deploying your app. We'll add that later.
+- No Database: Don't worry about setting up a database. We'll add that later.
+- No Real-Time Updates: Don't worry about real-time updates. We'll add that later.
+- No Payment Integration: Don't worry about integrating with a payment processor. We'll add that later.
+- No Customizations: Don't worry about complex customizations or special requests. We'll add that later.
+- No User Accounts: Don't worry about user accounts or authentication. We'll add that later.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Schemas and entities:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Menu Item
+- Name: String
+- Description: String
+- Price: Number
+- Image: String (URL)
+- Category: String
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[//]: # (- Quantity: Number)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Order
+- Items: Array of Menu Items
+- Total: Number
+- Status: String (New, In Progress, Complete)
+- Date: Date
+- Customer: String (Name or ID)
 
-## Learn More
+### User
+- Name: String
+- Email: String
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Order Queue
+- Orders: Array of Orders
+- Total Orders: Number
+- Total Revenue: Number
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[//]: # (- Average Order Value: Number)
+[//]: # (- Busiest Time: Date)
+[//]: # (- Average Time to Complete: Number)
+[//]: # (- Average Items per Order: Number)
+[//]: # (- Average Revenue per Order: Number)
+[//]: # (- Average Revenue per Hour: Number)
+[//]: # (- Average Revenue per Day: Number)
+[//]: # (- Average Revenue per Week: Number)
+[//]: # (- Average Revenue per Month: Number)
+[//]: # (- Average Revenue per Year: Number)
+[//]: # (- Average Revenue per Customer: Number)
+[//]: # (- Average Orders per Customer: Number)
+[//]: # (- Average Items per Customer: Number)
+[//]: # (- Average Revenue per Item: Number)
+[//]: # (- Average Orders per Item: Number)
+[//]: # (- Average Revenue per Category: Number)
+[//]: # (- Average Orders per Category: Number)
+
+### Order Details
+- Order: Order
+- Items: Array of Menu Items
+- Total: Number
+
+### Order Status
+- Order: Order
+- Status: String (New, In Progress, Complete)
+- Date: Date
+- User: User
+- Notes: String
+- Items: Array of Menu Items
+- Total: Number
+- Time to Complete: Number
+- Revenue: Number
