@@ -16,19 +16,21 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <OrderedItemsProvider>
-      <div className="App">
-        <header className="App-header">
-          <h1>Comidaria</h1>
-          <img
-            className={"restaurant-logo"}
-            src={LogoRestaurant}
-            alt="restaurant logo"
-          />
-          <OrderSummary orderedItems={orderedItems} />
-        </header>
+        <div className="App">
+          <header className="App-header">
+            <img
+              className={"restaurant-logo"}
+              src={LogoRestaurant}
+              alt="restaurant logo"
+            />
+            <section>
+              <h1>Comidaria</h1>
+              <OrderSummary orderedItems={orderedItems} />
+            </section>
+          </header>
 
-        <Menu orderedItems={orderedItems} setOrderedItems={setOrderedItems} />
-      </div>
+          <Menu orderedItems={orderedItems} setOrderedItems={setOrderedItems} />
+        </div>
       </OrderedItemsProvider>
     </QueryClientProvider>
   );

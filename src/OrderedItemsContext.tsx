@@ -1,20 +1,19 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { MenuItemInterface } from './interfaces';
 
 interface OrderedItemsContextType {
-    orderedItems: string[];
-    setOrderedItems: React.Dispatch<React.SetStateAction<string[]>>;
+    orderedItems: MenuItemInterface[];
+    setOrderedItems: React.Dispatch<React.SetStateAction<MenuItemInterface[]>>;
 }
 
 interface OrderedItemsProviderProps {
-
     children: ReactNode;
-  
   }
 
 const OrderedItemsContext = createContext<OrderedItemsContextType | undefined>(undefined);
 
 export const OrderedItemsProvider: React.FC<OrderedItemsProviderProps> = ({ children }) => {
-    const [orderedItems, setOrderedItems] = useState<string[]>([]);
+    const [orderedItems, setOrderedItems] = useState<MenuItemInterface[]>([]);
 
     return (
         <OrderedItemsContext.Provider value={{ orderedItems, setOrderedItems }}>

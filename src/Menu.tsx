@@ -36,7 +36,7 @@ export const Menu: React.FC<MenuProps> = ({orderedItems, setOrderedItems}) => {
         : menuItems;
 
     return (
-        <div>
+        <div className="menu">
             <label htmlFor="category-select">Choose a category:</label>
             <select id="category-select" onChange={handleCategoryChange}>
                 <option value="">All</option>
@@ -44,7 +44,7 @@ export const Menu: React.FC<MenuProps> = ({orderedItems, setOrderedItems}) => {
                     <option key={index} value={category}>{category}</option>
                 ))}
             </select>
-            <div className="menu">
+            <div className="menu--items-list">
                 {filteredMenuItems.map((item, index) => (
                     <MenuItem
                         key={item.name}
