@@ -1,17 +1,12 @@
-
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-interface Restaurant {
-//   id: string;
-  name: string;
-}
 
-const fetchRestaurants = async (): Promise<Restaurant[]> => {
-  const { data } = await axios.get("/restaurants");
+const fetchRestaurants = async () => {
+  const { data } = await axios.get("https://api.emitajuba.com.br/restaurants");
   return data;
 };
 
 export const useRestaurants = () => {
-  return useQuery<Restaurant[], Error>({ queryKey: ["restaurants"], queryFn: fetchRestaurants });
+  return useQuery({ queryKey: ["restaurants"], queryFn: fetchRestaurants });
 };
