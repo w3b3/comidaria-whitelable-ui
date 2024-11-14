@@ -5,10 +5,8 @@ const fetchRestaurants = async () => {
   const { data } = await axios.get(
     `https://api.emitajuba.com.br/data/restaurants`
   );
-  const decoded = data.map((element: string) => {
-    return decodeURIComponent(element);
-  });
-  return decoded as string[];
+  
+  return data as string[];
 };
 
 export const useRestaurants = () => {

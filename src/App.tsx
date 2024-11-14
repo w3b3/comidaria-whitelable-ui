@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Menu } from "./Menu";
-import LogoRestaurant from "./images/logo_restaurant.jpg";
 import { OrderSummary } from "./OrderSummary";
 import { MenuItemInterface } from "./interfaces";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -19,18 +18,12 @@ function App() {
       <OrderedItemsProvider>
         <RestaurantProvider>
           <div className="App">
-            <header className="App-header">
-              <img
-                className={"restaurant-logo"}
-                src={LogoRestaurant}
-                alt="restaurant logo"
-              />
-              <section>
-                <HeaderComponent />
-                <OrderSummary orderedItems={orderedItems} />
-              </section>
-            </header>
-            <Menu orderedItems={orderedItems} setOrderedItems={setOrderedItems} />
+            <HeaderComponent />
+            <Menu
+              orderedItems={orderedItems}
+              setOrderedItems={setOrderedItems}
+            />
+            {orderedItems.length > 0 && <OrderSummary orderedItems={orderedItems} />}
           </div>
         </RestaurantProvider>
       </OrderedItemsProvider>

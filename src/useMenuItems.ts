@@ -10,8 +10,10 @@ const fetchMenuItems = async (restaurant_name: string) => {
 };
 
 export const useMenuItems = (restaurant_name: string) => {
+  // How to validate the input and return early in case it is invalid? Using React Query here
   return useQuery({
     queryKey: ["menuItems", restaurant_name],
     queryFn: () => fetchMenuItems(restaurant_name),
+    enabled: !!restaurant_name && typeof restaurant_name === "string",
   });
 };
