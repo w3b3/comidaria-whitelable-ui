@@ -3,7 +3,7 @@ import axios from "axios";
 
 const fetchMenuItems = async (restaurant_name: string) => {
   const { data } = await axios.get(
-    `https://api.emitajuba.com.br/data/${restaurant_name}`
+    `https://api.emitajuba.com.br/data/restaurants/${restaurant_name}`
   );
   // can I type this response as MenuItemInterface? How to handle the possibility of errors?
   return data;

@@ -7,6 +7,7 @@ import { MenuItemInterface } from "./interfaces";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { OrderedItemsProvider } from "./OrderedItemsContext";
 import { HeaderComponent } from "./Header";
+import { RestaurantProvider } from "./RestaurantContext";
 
 const queryClient = new QueryClient();
 
@@ -16,21 +17,22 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <OrderedItemsProvider>
-        <div className="App">
-          <header className="App-header">
-            <img
-              className={"restaurant-logo"}
-              src={LogoRestaurant}
-              alt="restaurant logo"
-            />
-            <section>
-              <HeaderComponent />
-              <OrderSummary orderedItems={orderedItems} />
-            </section>
-          </header>
-
-          <Menu orderedItems={orderedItems} setOrderedItems={setOrderedItems} />
-        </div>
+        <RestaurantProvider>
+          <div className="App">
+            <header className="App-header">
+              <img
+                className={"restaurant-logo"}
+                src={LogoRestaurant}
+                alt="restaurant logo"
+              />
+              <section>
+                <HeaderComponent />
+                <OrderSummary orderedItems={orderedItems} />
+              </section>
+            </header>
+            <Menu orderedItems={orderedItems} setOrderedItems={setOrderedItems} />
+          </div>
+        </RestaurantProvider>
       </OrderedItemsProvider>
     </QueryClientProvider>
   );
