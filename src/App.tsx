@@ -5,9 +5,8 @@ import LogoRestaurant from "./images/logo_restaurant.jpg";
 import { OrderSummary } from "./OrderSummary";
 import { MenuItemInterface } from "./interfaces";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { OrderedItemsProvider } from './OrderedItemsContext';
+import { OrderedItemsProvider } from "./OrderedItemsContext";
 import { HeaderComponent } from "./Header";
-
 
 const queryClient = new QueryClient();
 
@@ -25,7 +24,7 @@ function App() {
               alt="restaurant logo"
             />
             <section>
-              <HeaderComponent/>
+              <HeaderComponent />
               <OrderSummary orderedItems={orderedItems} />
             </section>
           </header>
