@@ -14,7 +14,7 @@ export const Menu: React.FC<MenuProps> = ({orderedItems, setOrderedItems}) => {
     const [selectedCategory, setSelectedCategory] = useState<string>("");
 
     // React Query data fetching
-    const { data, error, isLoading } = useMenuItems();
+    const { data, error, isLoading } = useMenuItems("McDonalds");
     // Type 'menuItems' as MenuItemInterface[]
     const menuItems = data as MenuItemInterface[];
 
