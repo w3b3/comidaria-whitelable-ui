@@ -10,9 +10,9 @@ interface MenuItemProps {
 export const MenuItem: React.FC<MenuItemProps> = ({ item, onOrderItem }) => {
     const { name, description, price, image } = item;
     const { orderedItems } = useOrderedItems();
-    useEffect(() => {
-        console.log("orderedItems", orderedItems);
-    }, [orderedItems])
+    // useEffect(() => {
+    //     console.log("orderedItems", orderedItems);
+    // }, [orderedItems])
     return (
         <div className="menu-item">
             <section className={'menu-item--header'}>
