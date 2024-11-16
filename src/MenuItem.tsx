@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {MenuItemInterface} from "./interfaces";
 import { useOrderedItems } from "./OrderedItemsContext";
 
@@ -10,9 +10,6 @@ interface MenuItemProps {
 export const MenuItem: React.FC<MenuItemProps> = ({ item, onOrderItem }) => {
     const { name, description, price, image } = item;
     const { orderedItems } = useOrderedItems();
-    // useEffect(() => {
-    //     console.log("orderedItems", orderedItems);
-    // }, [orderedItems])
     return (
         <div className="menu-item">
             <section className={'menu-item--header'}>

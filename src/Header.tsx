@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useRestaurants } from "./useRestaurants";
 import { RestaurantContext } from "./RestaurantContext";
 import LogoRestaurant from "./images/logo_restaurant.jpg";
-
+import { useNavigate } from "react-router-dom";
 
 const HeaderComponent = () => {
+  const navigate = useNavigate();
   const { data: restaurants, error, isLoading } = useRestaurants();
   const { selectedRestaurant, setSelectedRestaurant } =
     useContext(RestaurantContext)!;
+
+  useEffect(() => {
+    if (selectedRestaurant) {
+      navigate(`/${selectedRestaurant}`);
+    }
+  }, [selectedRestaurant, navigate]);
 
   if (error) return <h2>❌ Error loading restaurants {error.message} ❌</h2>;
   if (isLoading) return <h2>💡 Loading...</h2>;
@@ -24,7 +31,10 @@ const HeaderComponent = () => {
       {!selectedRestaurant ? (
         <select
           value={selectedRestaurant}
-          onChange={(e) => setSelectedRestaurant(e.target.value)}
+          onChange={(e) => {
+            setSelectedRestaurant(e.target.value);
+            navigate(`/${e.target.value}`);
+          }}
         >
           {restaurants?.flatMap((restaurant: string, i: number) => [
             i === 0 ? (
