@@ -5,6 +5,7 @@ import { useMenuItems } from "./useMenuItems";
 import { MenuItem } from "./MenuItem";
 import { MenuItemInterface } from "./interfaces";
 import { RestaurantContext } from "./RestaurantContext";
+import Placeholder from "./images/logo_app.jpg";
 
 interface MenuProps {
   orderedItems: MenuItemInterface[];
@@ -25,8 +26,11 @@ export const Menu: React.FC<MenuProps> = ({
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading menu items</div>;
-  if (data === undefined) return <p>Select a restaurant first.</p>;
-  
+  if (data === undefined)
+    return (
+      <img className={"placeholder"} src={Placeholder} alt="placeholder" />
+    );
+
   const handleCategoryChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {

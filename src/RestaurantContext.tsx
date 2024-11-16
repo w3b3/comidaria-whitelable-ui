@@ -10,8 +10,8 @@ export const RestaurantContext = createContext<RestaurantContextInterface>({
   setSelectedRestaurant: () => {},
 });
 
-export const RestaurantProvider = ({ children }: { children: ReactNode }) => {
-  const [selectedRestaurant, setSelectedRestaurant] = useState<string>("");
+export const RestaurantProvider = ({ children, initialRestaurant = '' }: { children: ReactNode, initialRestaurant?: string }) => {
+  const [selectedRestaurant, setSelectedRestaurant] = useState<string>(initialRestaurant);
 
   useEffect(() => {
     // TODO: remove this console.log
