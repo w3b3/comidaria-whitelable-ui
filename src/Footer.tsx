@@ -5,6 +5,7 @@ import { useContext } from "react";
 const FooterComponent = () => {
   const navigate = useNavigate();
   const { setSelectedRestaurant } = useContext(RestaurantContext);
+  // const { restaurant } = useContext(OrderedItemsContext);
 
   const navigateHome = () => {
     navigate("/");
@@ -12,7 +13,7 @@ const FooterComponent = () => {
   };
   return (
     <footer className="fixed-footer">
-      <button onClick={() => navigate(-1)}>Back</button>
+      {/* <button onClick={() => navigate(-1)}>Back</button> */}
       <button onClick={navigateHome}>Todos os restaurantes</button>
     </footer>
   );

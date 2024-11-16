@@ -31,14 +31,20 @@ function App() {
           <QueryClientProvider client={queryClient}>
             <div className="App">
               <HeaderComponent />
+
               <Routes>
                 <Route
                   path="/:restaurant_name"
                   element={
-                    <Menu
-                      orderedItems={orderedItems}
-                      setOrderedItems={setOrderedItems}
-                    />
+                    <>
+                      {orderedItems.length > 0 && (
+                        <OrderSummary orderedItems={orderedItems} />
+                      )}
+                      <Menu
+                        orderedItems={orderedItems}
+                        setOrderedItems={setOrderedItems}
+                      />
+                    </>
                   }
                 />
                 <Route
@@ -51,10 +57,7 @@ function App() {
                   }
                 />
               </Routes>
-              {orderedItems.length > 0 && (
-                <OrderSummary orderedItems={orderedItems} />
-              )}
-            <FooterComponent />
+              <FooterComponent />
             </div>
           </QueryClientProvider>
         </OrderedItemsProvider>

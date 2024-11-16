@@ -28,31 +28,20 @@ const HeaderComponent = () => {
       />
 
       {!selectedRestaurant ? (
-        <>
-          <label htmlFor="restaurant-select" className="sr-only">
-            Selecione: 
-          </label>
-          <select
-            id="restaurant-select"
-            value={selectedRestaurant}
-            onChange={(e) => {
-              setSelectedRestaurant(e.target.value);
-              navigate(`/${e.target.value}`);
-            }}
-            aria-label="Selecione um restaurante"
-          >
-            {restaurants?.flatMap((restaurant: string, i: number) => [
-              i === 0 ? (
-                <option key="none" value="">
-                  Restaurantes disponiveis
-                </option>
-              ) : null,
-              <option key={restaurant} value={restaurant}>
-                {decodeURIComponent(restaurant).replace(/_/g, " ")}
-              </option>,
-            ])}
-          </select>
-        </>
+        <div className="restaurant-cards">
+          {restaurants?.map((restaurant: string) => (
+            <div
+              key={restaurant}
+              className="restaurant-card clickable"
+              onClick={() => {
+                setSelectedRestaurant(restaurant);
+                navigate(`/${restaurant}`);
+              }}
+            >
+              {decodeURIComponent(restaurant).replace(/_/g, " ")}
+            </div>
+          ))}
+        </div>
       ) : (
         <h1>
           {decodeURIComponent(selectedRestaurant).replace(/_/g, " ")}
