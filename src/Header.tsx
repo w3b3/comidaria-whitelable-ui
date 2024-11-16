@@ -55,7 +55,7 @@ const HeaderComponent = () => {
         </>
       ) : (
         <h1>
-          {decodeURIComponent(selectedRestaurant).replace(/_/g, " ") + " ✅"}
+          {decodeURIComponent(selectedRestaurant).replace(/_/g, " ")}
         </h1>
       )}
     </header>

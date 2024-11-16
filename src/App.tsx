@@ -6,6 +6,7 @@ import { MenuItemInterface } from "./interfaces";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { OrderedItemsProvider } from "./OrderedItemsContext";
 import { HeaderComponent } from "./Header";
+import { FooterComponent } from "./Footer";
 import { RestaurantProvider } from "./RestaurantContext";
 import {
   BrowserRouter as Router,
@@ -53,6 +54,7 @@ function App() {
               {orderedItems.length > 0 && (
                 <OrderSummary orderedItems={orderedItems} />
               )}
+            <FooterComponent />
             </div>
           </QueryClientProvider>
         </OrderedItemsProvider>
