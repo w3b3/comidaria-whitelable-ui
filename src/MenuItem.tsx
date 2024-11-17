@@ -4,10 +4,10 @@ import {MenuItemInterface} from "./interfaces";
 
 interface MenuItemProps {
     item: MenuItemInterface;
-    onOrderItem: () => void;
+    // onOrderItem: () => void;
 }
 
-export const MenuItem: React.FC<MenuItemProps> = ({ item, onOrderItem }) => {
+export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
     const { name, description, price, image } = item;
     // const { orderedItems } = useOrderedItems();
     return (

@@ -1,8 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./App.css";
 import { Menu } from "./Menu";
 // import { OrderSummary } from "./OrderSummary";
-import { MenuItemInterface } from "./interfaces";
+// import { MenuItemInterface } from "./interfaces";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { OrderedItemsProvider } from "./OrderedItemsContext";
 import { HeaderComponent } from "./Header";
@@ -18,7 +18,7 @@ import {
 const queryClient = new QueryClient();
 
 function App() {
-  const [orderedItems, setOrderedItems] = useState<MenuItemInterface[]>([]);
+  // const [orderedItems, setOrderedItems] = useState<MenuItemInterface[]>([]);
   const { no_footer } = useParams<{
     no_footer: string;
   }>();
@@ -40,8 +40,8 @@ function App() {
                       <HeaderComponent />
 
                       <Menu
-                        orderedItems={orderedItems}
-                        setOrderedItems={setOrderedItems}
+                        // orderedItems={orderedItems}
+                        // setOrderedItems={setOrderedItems}
                       />
                     </>
                   }
@@ -56,8 +56,8 @@ function App() {
                           <OrderSummary orderedItems={orderedItems} />
                         )} */}
                         <Menu
-                          orderedItems={orderedItems}
-                          setOrderedItems={setOrderedItems}
+                          // orderedItems={orderedItems}
+                          // setOrderedItems={setOrderedItems}
                         />
                       </>
                     }

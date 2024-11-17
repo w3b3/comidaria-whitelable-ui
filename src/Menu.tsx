@@ -8,10 +8,10 @@ import { MenuItemInterface } from "./interfaces";
 import Placeholder from "./images/logo_app.jpg";
 import { useParams } from "react-router-dom";
 
-interface MenuProps {
-  orderedItems: MenuItemInterface[];
-  setOrderedItems: React.Dispatch<React.SetStateAction<MenuItemInterface[]>>;
-}
+// interface MenuProps {
+  // orderedItems: MenuItemInterface[];
+  // setOrderedItems: React.Dispatch<React.SetStateAction<MenuItemInterface[]>>;
+// }
 
 const CategoryCard: React.FC<{
   category: string;
@@ -22,10 +22,7 @@ const CategoryCard: React.FC<{
   </div>
 );
 
-export const Menu: React.FC<MenuProps> = ({
-  orderedItems,
-  setOrderedItems,
-}) => {
+export const Menu: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   // const { selectedRestaurant } = useContext(RestaurantContext);
   const { restaurant_name: restaurant = "" } = useParams();
@@ -46,9 +43,9 @@ export const Menu: React.FC<MenuProps> = ({
     setSelectedCategory(category);
   };
 
-  const handleOrderItem = (item: MenuItemInterface) => {
-    setOrderedItems([...orderedItems, item]);
-  };
+  // const handleOrderItem = (item: MenuItemInterface) => {
+    // setOrderedItems([...orderedItems, item]);
+  // };
 
   const categories = Array.from(
     new Set(menuItems.flatMap((item) => item.category))
@@ -75,7 +72,7 @@ export const Menu: React.FC<MenuProps> = ({
           <MenuItem
             key={item.name}
             item={item}
-            onOrderItem={() => handleOrderItem(item)}
+            // onOrderItem={() => handleOrderItem(item)}
           />
         ))}
       </div>
