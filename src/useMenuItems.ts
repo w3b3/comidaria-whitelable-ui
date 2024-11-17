@@ -17,6 +17,6 @@ export const useMenuItems = (restaurant_name: string) => {
   return useQuery({
     queryKey: ["menuItems", restaurant_name],
     queryFn: () => fetchMenuItems(restaurant_name),
-    enabled: !!restaurant_name && typeof restaurant_name === "string",
+    enabled: !!restaurant_name && restaurant_name !== "restaurants",
   });
 };

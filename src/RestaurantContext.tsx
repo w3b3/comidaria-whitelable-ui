@@ -1,4 +1,5 @@
-import React, { createContext, useState, ReactNode, useEffect } from "react";
+import React, { createContext, ReactNode, useState } from "react";
+import { useParams } from "react-router-dom";
 
 interface RestaurantContextInterface {
   selectedRestaurant: string;
@@ -10,11 +11,15 @@ export const RestaurantContext = createContext<RestaurantContextInterface>({
   setSelectedRestaurant: () => {},
 });
 
-export const RestaurantProvider = ({ children, initialRestaurant = '' }: { children: ReactNode, initialRestaurant?: string }) => {
-  const [selectedRestaurant, setSelectedRestaurant] = useState<string>(initialRestaurant);
+export const RestaurantProvider = ({ children }: { children: ReactNode, initialRestaurant?: string }) => {
+  const { restaurant_name: restaurant = "" } = useParams();
+  const [selectedRestaurant, setSelectedRestaurant] = useState<string>(restaurant);
 
   return (
-    <RestaurantContext.Provider value={{ selectedRestaurant, setSelectedRestaurant }}>
+    <RestaurantContext.Provider value={{
+      selectedRestaurant,
+      setSelectedRestaurant,
+     }}>
       {children}
     </RestaurantContext.Provider>
   );

@@ -8,7 +8,7 @@ const FooterComponent = () => {
   // const { restaurant } = useContext(OrderedItemsContext);
 
   const navigateHome = () => {
-    navigate("/");
+    navigate("/restaurants");
     setSelectedRestaurant("");
   };
   return (

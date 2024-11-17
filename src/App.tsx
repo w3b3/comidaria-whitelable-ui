@@ -14,6 +14,7 @@ import {
   Routes,
   useParams,
 } from "react-router-dom";
+import { PlaceholderComponent } from "./PlaceholderComponent";
 
 const queryClient = new QueryClient();
 
@@ -23,12 +24,12 @@ function App() {
     no_footer: string;
   }>();
 
-  const path = window.location.pathname;
-  const restaurantPath = path.substring(1);
+  // const path = window.location.pathname;
+  // const restaurantPath = path.substring(1);
 
   return (
     <Router>
-      <RestaurantProvider initialRestaurant={restaurantPath}>
+      <RestaurantProvider>
         <OrderedItemsProvider>
           <QueryClientProvider client={queryClient}>
             <div className="App">
@@ -38,20 +39,37 @@ function App() {
                   element={
                     <>
                       <HeaderComponent />
-
-                      <Menu
-                      // orderedItems={orderedItems}
-                      // setOrderedItems={setOrderedItems}
-                      />
+                      <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Omnis aspernatur quo, distinctio tenetur minima
+                        necessitatibus at illum nostrum esse nemo voluptatibus
+                        dolores, placeat et pariatur eaque assumenda facilis
+                        dolor neque.
+                      </p>
+                      <FooterComponent />
                     </>
                   }
                 />
                 <Route path="restaurants">
                   <Route
+                    path=""
+                    element={
+                      <>
+                        <HeaderComponent />
+                        <Menu
+                        // orderedItems={orderedItems}
+                        // setOrderedItems={setOrderedItems}
+                        />
+                        <PlaceholderComponent />
+                      </>
+                    }
+                  />
+
+                  <Route
                     path=":restaurant_name"
                     element={
                       <>
-                        <HeaderComponent singleRestaurant={true} />
+                        <HeaderComponent />
                         {/* {orderedItems.length > 0 && (
                           <OrderSummary orderedItems={orderedItems} />
                         )} */}
@@ -59,7 +77,7 @@ function App() {
                         // orderedItems={orderedItems}
                         // setOrderedItems={setOrderedItems}
                         />
-                        {!no_footer && <FooterComponent />}
+                        <FooterComponent />
                       </>
                     }
                   />
