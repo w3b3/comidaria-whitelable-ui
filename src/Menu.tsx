@@ -30,14 +30,14 @@ export const Menu: React.FC = () => {
   const navigate = useNavigate();
   const {
     data: restaurants,
-    // error: restaurantsError,
+    error: restaurantsError,
     // isLoading: restaurantsLoading,
   } = useRestaurants();
 
   // React Query data fetching
   const {
     data: menuItems,
-    // error: menuItemsError,
+    error: menuItemsError,
     // isLoading: menuItemsLoading,
   } = useMenuItems(restaurant);
 
@@ -50,7 +50,8 @@ export const Menu: React.FC = () => {
   //   );
   // }
   // if (isLoading) return <div>Loading...</div>;
-  // if (error) return <div>❌ Error loading restaurants {error.message} ❌</div>;
+  if (restaurantsError) return <div>❌ Error loading restaurantsError {restaurantsError.message} ❌</div>;
+  if (menuItemsError) return <div>❌ Error loading menuItemsError {menuItemsError.message} ❌</div>;
 
   // if (restaurantsError) return <h2>❌ Error loading restaurants {restaurantsError.message} ❌</h2>;
   // if (restaurantsLoading) return <h2>💡 Loading...</h2>;
