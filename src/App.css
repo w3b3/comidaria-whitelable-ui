@@ -94,14 +94,16 @@
   cursor: pointer;
 }
 
-.restaurant-cards {
+.restaurant-cards,
+.category-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
 }
 
-.restaurant-card {
+.restaurant-card,
+.category-card {
   padding: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -110,7 +112,8 @@
   transition: transform 0.2s;
 }
 
-.restaurant-card:hover {
+.restaurant-card:hover,
+.category-card:hover {
   transform: scale(1.05);
 }
 

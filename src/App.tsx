@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Menu } from "./Menu";
-import { OrderSummary } from "./OrderSummary";
+// import { OrderSummary } from "./OrderSummary";
 import { MenuItemInterface } from "./interfaces";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { OrderedItemsProvider } from "./OrderedItemsContext";
@@ -19,8 +19,7 @@ const queryClient = new QueryClient();
 
 function App() {
   const [orderedItems, setOrderedItems] = useState<MenuItemInterface[]>([]);
-  const { restaurant: restaurantParam, no_footer } = useParams<{
-    restaurant: string;
+  const { no_footer } = useParams<{
     no_footer: string;
   }>();
 
@@ -29,20 +28,17 @@ function App() {
 
   return (
     <Router>
-      <RestaurantProvider initialRestaurant={restaurantParam || restaurantPath}>
+      <RestaurantProvider initialRestaurant={restaurantPath}>
         <OrderedItemsProvider>
           <QueryClientProvider client={queryClient}>
             <div className="App">
-              <HeaderComponent />
-
               <Routes>
                 <Route
-                  path="/:restaurant_name"
+                  path="/"
                   element={
                     <>
-                      {orderedItems.length > 0 && (
-                        <OrderSummary orderedItems={orderedItems} />
-                      )}
+                      <HeaderComponent />
+
                       <Menu
                         orderedItems={orderedItems}
                         setOrderedItems={setOrderedItems}
@@ -50,15 +46,23 @@ function App() {
                     </>
                   }
                 />
-                <Route
-                  path="/"
-                  element={
-                    <Menu
-                      orderedItems={orderedItems}
-                      setOrderedItems={setOrderedItems}
-                    />
-                  }
-                />
+                <Route path="restaurants">
+                  <Route
+                    path=":restaurant_name"
+                    element={
+                      <>
+                        <HeaderComponent showRestaurantLogo={true} />
+                        {/* {orderedItems.length > 0 && (
+                          <OrderSummary orderedItems={orderedItems} />
+                        )} */}
+                        <Menu
+                          orderedItems={orderedItems}
+                          setOrderedItems={setOrderedItems}
+                        />
+                      </>
+                    }
+                  />
+                </Route>
               </Routes>
               {!no_footer && <FooterComponent />}
             </div>
