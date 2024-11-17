@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { Menu } from "./Menu";
 // import { OrderSummary } from "./OrderSummary";
@@ -51,7 +51,7 @@ function App() {
                     path=":restaurant_name"
                     element={
                       <>
-                        <HeaderComponent showRestaurantLogo={true} />
+                        <HeaderComponent singleRestaurant={true} />
                         {/* {orderedItems.length > 0 && (
                           <OrderSummary orderedItems={orderedItems} />
                         )} */}

@@ -5,15 +5,17 @@ import LogoRestaurant from "./images/logo_restaurant.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 
 interface HeaderComponentProps {
-  showRestaurantLogo?: boolean;
+  singleRestaurant?: boolean;
 }
 
-const HeaderComponent: React.FC<HeaderComponentProps> = ({ showRestaurantLogo = false }) => {
+const HeaderComponent: React.FC<HeaderComponentProps> = ({
+  singleRestaurant = false,
+}) => {
   const navigate = useNavigate();
   const { restaurant_name: restaurant } = useParams();
   const { data: restaurants, error, isLoading } = useRestaurants();
   // const { selectedRestaurant, setSelectedRestaurant } =
-    // useContext(RestaurantContext)!;
+  // useContext(RestaurantContext)!;
 
   useEffect(() => {
     if (restaurant) {
@@ -26,13 +28,19 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ showRestaurantLogo = 
 
   return (
     <header className="App-header">
-      <img
-        className={"restaurant-logo"}
-        src={LogoRestaurant}
-        alt="restaurant logo"
-      />
+      {!singleRestaurant && (
+        <img
+          className={"restaurant-logo"}
+          src={LogoRestaurant}
+          alt="restaurant logo"
+        />
+      )}
 
-      {!restaurant && !showRestaurantLogo? (
+      {restaurant ? (
+        <h1>
+          {restaurant && decodeURIComponent(restaurant).replace(/_/g, " ")}
+        </h1>
+      ) : (
         <div className="restaurant-cards">
           {restaurants?.map((restaurant: string) => (
             <div
@@ -47,10 +55,6 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ showRestaurantLogo = 
             </div>
           ))}
         </div>
-      ) : (
-        <h1>
-          {restaurant && decodeURIComponent(restaurant).replace(/_/g, " ")}
-        </h1>
       )}
     </header>
   );
