@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import { menuItems } from "./backend";
 import { useMenuItems } from "./useMenuItems";
 import { MenuItem } from "./MenuItem";
-import { MenuItemInterface } from "./interfaces";
+// import { MenuItemInterface } from "./interfaces";
 // import { RestaurantContext } from "./RestaurantContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { useRestaurants } from "./useRestaurants";
@@ -30,15 +30,15 @@ export const Menu: React.FC = () => {
   const navigate = useNavigate();
   const {
     data: restaurants,
-    error: restaurantsError,
-    isLoading: restaurantsLoading,
+    // error: restaurantsError,
+    // isLoading: restaurantsLoading,
   } = useRestaurants();
 
   // React Query data fetching
   const {
     data: menuItems,
-    error: menuItemsError,
-    isLoading: menuItemsLoading,
+    // error: menuItemsError,
+    // isLoading: menuItemsLoading,
   } = useMenuItems(restaurant);
 
   // Type 'menuItems' as MenuItemInterface[]

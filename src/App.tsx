@@ -12,7 +12,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useParams,
+  // useParams,
 } from "react-router-dom";
 import { PlaceholderComponent } from "./PlaceholderComponent";
 
@@ -20,9 +20,9 @@ const queryClient = new QueryClient();
 
 function App() {
   // const [orderedItems, setOrderedItems] = useState<MenuItemInterface[]>([]);
-  const { no_footer } = useParams<{
-    no_footer: string;
-  }>();
+  // const { no_footer } = useParams<{
+  //   no_footer: string;
+  // }>();
 
   // const path = window.location.pathname;
   // const restaurantPath = path.substring(1);
