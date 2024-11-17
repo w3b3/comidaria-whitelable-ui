@@ -79,47 +79,7 @@ export const Menu: React.FC = () => {
 
   return (
     <div className="menu">
-      {restaurant ? (
-        <>
-          <div className="category-cards">
-            <CategoryCard
-              category="All"
-              onClick={() => handleCategoryChange("")}
-            />
-            {categories.map((category, index) => (
-              <CategoryCard
-                key={index}
-                category={category}
-                onClick={() => handleCategoryChange(category)}
-              />
-            ))}
-          </div>
-          <div className="menu--items-list">
-            {filteredMenuItems?.map((item, index) => (
-              <MenuItem
-                key={item.name}
-                item={item}
-                // onOrderItem={() => handleOrderItem(item)}
-              />
-            ))}
-          </div>
-        </>
-      ) : (
-        <div className="restaurant-cards">
-          {restaurants?.map((restaurant: string) => (
-            <div
-              key={restaurant}
-              className="restaurant-card clickable"
-              onClick={() => {
-                // setSelectedRestaurant(restaurant);
-                navigate(`/restaurants/${restaurant}`);
-              }}
-            >
-              {restaurant && decodeURIComponent(restaurant).replace(/_/g, " ")}
-            </div>
-          ))}
-        </div>
-      )}
+      foo
     </div>
   );
 };
