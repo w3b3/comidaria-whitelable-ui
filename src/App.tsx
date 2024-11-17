@@ -40,8 +40,8 @@ function App() {
                       <HeaderComponent />
 
                       <Menu
-                        // orderedItems={orderedItems}
-                        // setOrderedItems={setOrderedItems}
+                      // orderedItems={orderedItems}
+                      // setOrderedItems={setOrderedItems}
                       />
                     </>
                   }
@@ -56,15 +56,15 @@ function App() {
                           <OrderSummary orderedItems={orderedItems} />
                         )} */}
                         <Menu
-                          // orderedItems={orderedItems}
-                          // setOrderedItems={setOrderedItems}
+                        // orderedItems={orderedItems}
+                        // setOrderedItems={setOrderedItems}
                         />
+                        {!no_footer && <FooterComponent />}
                       </>
                     }
                   />
                 </Route>
               </Routes>
-              {!no_footer && <FooterComponent />}
             </div>
           </QueryClientProvider>
         </OrderedItemsProvider>
