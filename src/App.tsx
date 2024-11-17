@@ -19,7 +19,10 @@ const queryClient = new QueryClient();
 
 function App() {
   const [orderedItems, setOrderedItems] = useState<MenuItemInterface[]>([]);
-  const { restaurantParam } = useParams<{ restaurantParam: string }>();
+  const { restaurant: restaurantParam, no_footer } = useParams<{
+    restaurant: string;
+    no_footer: string;
+  }>();
 
   const path = window.location.pathname;
   const restaurantPath = path.substring(1);
@@ -57,7 +60,7 @@ function App() {
                   }
                 />
               </Routes>
-              <FooterComponent />
+              {!no_footer && <FooterComponent />}
             </div>
           </QueryClientProvider>
         </OrderedItemsProvider>
